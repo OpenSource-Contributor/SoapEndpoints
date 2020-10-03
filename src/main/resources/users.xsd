@@ -1,0 +1,55 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://scicom.com/soap-stars"
+           targetNamespace="http://scicom.com/soap-stars"
+           elementFormDefault="qualified">
+
+    <xs:element name="starsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="starsRequest" type="tns:starsRequest" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="starsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="starsResponse" type="tns:starsResponse" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="starsRequest">
+        <xs:sequence>
+            <xs:element name="starHeader" type="tns:starHeader" />
+            <xs:element name="starData" type="tns:starData" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="starHeader">
+        <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="sp_code" type="xs:string" />
+            <xs:element name="ss_code" type="xs:string" />
+            <xs:element name="trxid" type="xs:string" />
+            <xs:element name="headerdtl" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="starData">
+        <xs:sequence>
+            <xs:element name="item" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="starsResponse">
+        <xs:sequence>
+            <xs:element name="starHeader" type="tns:starHeader" />
+            <xs:element name="starData" type="tns:starData" />
+            <xs:element name="respcd" type="xs:string" />
+            <xs:element name="rcdcnt" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
